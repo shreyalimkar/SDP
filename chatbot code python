@@ -1,0 +1,85 @@
+import random
+
+# Course information (replace with actual course details)
+courses = {
+    "Computer Engineering": {
+        "description": "Deals with the design, development, and implementation of computer systems.",
+        "skills": ["Programming", "Hardware Design", "Networking", "Algorithms", "Data Structures"]
+    },
+    "Mechanical Engineering": {
+        "description": "Applies engineering principles to the design, analysis, manufacturing, and maintenance of mechanical systems.",
+        "skills": ["Thermodynamics", "Mechanics of Materials", "Machine Design", "Control Systems", "Robotics"]
+    },
+    "Electronics and Telecommunication Engineering": {
+        "description": "Involves the design, development, and application of electronic devices and telecommunication systems.",
+        "skills": ["Circuit Analysis", "Electronic Devices", "Signal Processing", "Communication Systems", "Control Systems"]
+    },
+    # Add more courses as needed
+}
+
+def greet():
+    """Greets the user and introduces the chatbot."""
+    print("Hi! I'm your SIES GST student development program chatbot. I'm here to help you explore different engineering courses and their career paths.")
+
+def get_user_choice():
+    """Prompts the user to select an engineering course or exit the program."""
+    print("\nWhat would you like to do?")
+    print("1. Learn about engineering courses")
+    print("2. Exit")
+    return input("Enter your choice (1 or 2): ")
+
+def display_courses():
+    """Lists all available engineering courses."""
+    print("\nAvailable Engineering Courses:")
+    for course in courses:
+        print(f"- {course}")
+
+def choose_course():
+    """Asks the user to select a specific engineering course."""
+    print("\nSelect an engineering course to learn more:")
+    display_courses()
+    choice = input("Enter your choice (course name): ").upper()
+    if choice not in courses:
+        print("Invalid course selection. Please try again.")
+        return choose_course()
+    return choice
+
+def describe_course(course_name):
+    """Provides a description of the chosen engineering course and its key skills."""
+    course_info = courses[course_name]
+    print(f"\n**{course_name}**")
+    print(course_info["description"])
+    print("\nKey Skills:")
+    for skill in course_info["skills"]:
+        print(f"- {skill}")
+
+def ask_for_career_interest():
+    """Inquires about the user's career aspirations."""
+    print("\nDo you have a specific career path in mind? (e.g., Software Engineer, Robotics Engineer)")
+    career_interest = input("Enter your interest (or 'no' if unsure): ")
+    return career_interest.lower()
+
+def provide_career_guidance(course_name, career_interest):
+    """Offers tailored career guidance based on the chosen course and the user's interest (if provided)."""
+    # Access career information from an external source (not provided here due to confidentiality)
+    career_info = get_career_info(course_name, career_interest)  # Replace with actual function call
+    if career_info:
+        print(f"\nGreat choice! Here's some information on how {course_name} can help you pursue a career in {career_interest}:")
+        print(career_info)
+    else:
+        print(f"\n{course_name} is a versatile course that opens doors to various career paths. Here are some examples:")
+        # Provide general career options for the course
+        # (Replace with placeholders based on actual career paths)
+        print("- Option 1: Career path 1 description")
+        print("- Option 2: Career path 2 description")
+        print("- Option 3: Career path 3 description")
+
+def get_career_info(course_name, career_interest):
+    # Simulate accessing an external career information source (replace with actual implementation)
+    career_options = {
+        "computer engineering": {
+            "software engineer": "https://en.wikipedia.org/wiki/Software_engineering",
+            "web developer": "https://en.wikipedia.org/wiki/Web_developer"
+        },
+        "mechanical engineering": {
+            "design engineer": "https://en.wikipedia.org/wiki/Design_engineer",
